@@ -18,4 +18,20 @@ pnpm dev
 bun dev
 ```
 
-next dev --turbo
+```bash
+npm install next-auth
+```
+
+```
+credenciales :
+"email": "eve.holt@reqres.in",
+"password": "cityslicka"
+
+```
+```css
+.color1 {color: #122842;}
+.color2 {color: #22436c;}
+.color3 {color: #706ca9;}
+.color4 {color: #c799e9;}
+.color5 {color: #f8beed;}
+```
