@@ -17,4 +17,11 @@ export type User = {
       text: string;
     };
   };
-  
+
+  export type UserSimpleResponse = {
+    data: User;
+    support: {
+      url: string;
+      text: string;
+    };
+  };

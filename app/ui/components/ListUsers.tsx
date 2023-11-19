@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { fetchListUsers } from '@/app/lib/reqres';
 import { Users } from '@/app/lib/definitions';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ListUsers = () => {
   const [users, setUsers] = useState<Users | null>(null);
@@ -25,7 +26,7 @@ const ListUsers = () => {
   const handlePageChange = (delta: number) => {
     const newPage = Math.max(1, currentPage + delta);
     setCurrentPage(newPage);
-    router.push(`/dashboard?page=${newPage}`);
+    router.push(`/dashboard/users?page=${newPage}`);
   };
 
   return (
@@ -34,6 +35,7 @@ const ListUsers = () => {
         {users?.data && (
           <>
             {users.data.map((user) => (
+              <Link href={`/dashboard/users/${user.id}`} key={user.id}>
               <div
                 key={user.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden p-4"
@@ -54,6 +56,7 @@ const ListUsers = () => {
                   <p className="text-gray-500">{user.email}</p>
                 </div>
               </div>
+              </Link>
             ))}
           </>
         )}
