@@ -1,4 +1,4 @@
-import {UserSimple, User , Users} from '@/app/lib/definitions'
+import {UserSimpleResponse, User , Users} from '@/app/lib/definitions'
 //List Users
 
 const apiUrl = "https://reqres.in/api";
@@ -24,7 +24,7 @@ export async function fetchListUsers(page = 1) {
 }
 
 //Single User
-export async function fetchSingleUser(id: string): Promise<UserSimple> {
+export async function fetchSingleUser(id: string): Promise<UserSimpleResponse> {
   try {
     const res = await fetch(`${apiUrl}/users/${id}`, {
       method: 'GET',
@@ -37,7 +37,7 @@ export async function fetchSingleUser(id: string): Promise<UserSimple> {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    const responseData: UserSimple = await res.json();
+    const responseData: UserSimpleResponse = await res.json();
 
     return responseData;
 
